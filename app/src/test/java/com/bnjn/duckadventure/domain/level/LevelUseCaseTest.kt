@@ -5,10 +5,10 @@ import org.junit.Assert.*
 
 class LevelUseCaseTest {
     @Test
-    fun `returns a 2D list`() {
+    fun `returns a 2D array`() {
         val levelUseCase = LevelUseCase()
         val result = levelUseCase.execute()
 
-        assertTrue(result is List<List<*>>)
+        assertTrue(result is Array<Array<*>>)
     }
 }
