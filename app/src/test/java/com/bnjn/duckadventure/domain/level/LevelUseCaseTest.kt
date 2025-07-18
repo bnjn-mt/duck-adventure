@@ -1,5 +1,6 @@
 package com.bnjn.duckadventure.domain.level
 
+import org.hamcrest.CoreMatchers.instanceOf
 import org.junit.Test
 import org.junit.Assert.*
 
@@ -9,6 +10,6 @@ class LevelUseCaseTest {
         val levelUseCase = LevelUseCase()
         val result = levelUseCase.execute()
 
-        assertTrue(result is Array<Array<*>>)
+        assertTrue(result[0] is Array<*>)
     }
 }
