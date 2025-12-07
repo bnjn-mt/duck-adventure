@@ -56,4 +56,13 @@ class LevelUseCaseTest {
         assertTrue(levelUseCase.getPlayerStartPosition().first == 1)
         assertTrue(levelUseCase.getPlayerStartPosition().second == 1)
     }
+
+    @Test
+    fun `getPlayerStartPosition should equal the value returned by the getPosition Player method upon setting up a level`() {
+        val levelUseCase = LevelUseCase(LevelGrid(3, 3))
+        val playerStartPosition = levelUseCase.getPlayerStartPosition()
+        val player = levelUseCase.getPlayer()
+
+        assertTrue(playerStartPosition == player.getPosition())
+    }
 }
