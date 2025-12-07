@@ -16,12 +16,12 @@ class LevelUseCaseTest {
     @Test
     fun `getPlayerPosition should return a valid player position as a pair`() {
         val levelUseCase = LevelUseCase(LevelGrid(10, 10))
-        val playerPosition: Pair<Int, Int> = levelUseCase.getPlayerPosition()
+        val playerStartPosition: Pair<Int, Int> = levelUseCase.getPlayerStartPosition()
 
-        assertTrue(playerPosition.first <= 10)
-        assertTrue(playerPosition.second <= 10)
-        assertTrue(playerPosition.first >= 0)
-        assertTrue(playerPosition.second >= 0)
+        assertTrue(playerStartPosition.first <= 10)
+        assertTrue(playerStartPosition.second <= 10)
+        assertTrue(playerStartPosition.first >= 0)
+        assertTrue(playerStartPosition.second >= 0)
     }
 
     @Test
@@ -29,8 +29,8 @@ class LevelUseCaseTest {
         val levelUseCase = LevelUseCase(LevelGrid(1000, 1000))
         val anotherLevelUseCase = LevelUseCase(LevelGrid(1000, 1000))
 
-        assertTrue(levelUseCase.getPlayerPosition().first != anotherLevelUseCase.getPlayerPosition().first)
-        assertTrue(levelUseCase.getPlayerPosition().second != anotherLevelUseCase.getPlayerPosition().second)
+        assertTrue(levelUseCase.getPlayerStartPosition().first != anotherLevelUseCase.getPlayerStartPosition().first)
+        assertTrue(levelUseCase.getPlayerStartPosition().second != anotherLevelUseCase.getPlayerStartPosition().second)
     }
 
     @Test
@@ -53,7 +53,7 @@ class LevelUseCaseTest {
         assertTrue(level.last().all { it is Wall })
         assertTrue(level.map { it.first() }.all { it is Wall })
         assertTrue(level.map { it.last() }.all { it is Wall })
-        assertTrue(levelUseCase.getPlayerPosition().first == 1)
-        assertTrue(levelUseCase.getPlayerPosition().second == 1)
+        assertTrue(levelUseCase.getPlayerStartPosition().first == 1)
+        assertTrue(levelUseCase.getPlayerStartPosition().second == 1)
     }
 }

@@ -9,7 +9,7 @@ class LevelUseCase(
     levelGrid: LevelGrid,
 ) {
     private var level: Array<Array<Any?>> = levelGrid.grid
-    private var playerPosition: Pair<Int, Int> = Pair(Random.nextInt(1, level.size - 1), Random.nextInt(1, level[0].size - 1))
+    private var playerStartPosition: Pair<Int, Int> = Pair(Random.nextInt(1, level.size - 1), Random.nextInt(1, level[0].size - 1))
 
     init {
         // Set up perimeter Walls
@@ -23,10 +23,10 @@ class LevelUseCase(
         }
 
         // Set up level with a Player
-        level[playerPosition.first][playerPosition.second] = Player()
+        level[playerStartPosition.first][playerStartPosition.second] = Player()
     }
 
     fun getLevel(): Array<Array<Any?>> = level
 
-    fun getPlayerPosition(): Pair<Int, Int> = playerPosition
+    fun getPlayerStartPosition(): Pair<Int, Int> = playerStartPosition
 }
