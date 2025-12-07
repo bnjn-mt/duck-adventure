@@ -23,4 +23,13 @@ class LevelGridTest {
             assertTrue(it.size == 5)
         }
     }
+
+    @Test
+    fun `the grid should contain only null values by default`() {
+        val levelGrid = LevelGrid(10, 10)
+
+        levelGrid.grid.forEach { row ->
+            row.forEach { assertTrue(it == null) }
+        }
+    }
 }
