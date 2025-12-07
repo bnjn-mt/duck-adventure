@@ -1,5 +1,6 @@
 package com.bnjn.duckadventure.domain.level.models
 
+import org.junit.Assert.assertThrows
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -30,6 +31,27 @@ class LevelGridTest {
 
         levelGrid.grid.forEach { row ->
             row.forEach { assertTrue(it == null) }
+        }
+    }
+
+    @Test
+    fun `throws an exception if the grid height is invalid`() {
+        assertThrows(IllegalArgumentException::class.java) {
+            LevelGrid(0, 3)
+        }
+    }
+
+    @Test
+    fun `throws an exception if the grid width is invalid`() {
+        assertThrows(IllegalArgumentException::class.java) {
+            LevelGrid(3, 0)
+        }
+    }
+
+    @Test
+    fun `throws an exception if the grid height and width are invalid`() {
+        assertThrows(IllegalArgumentException::class.java) {
+            LevelGrid(-4, -11)
         }
     }
 }
